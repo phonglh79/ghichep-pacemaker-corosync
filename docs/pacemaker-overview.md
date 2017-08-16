@@ -110,5 +110,7 @@ ___
 
 - # <a name="others-content">Các nội dung khác</a>
 
-	Sẽ cập nhật sau
-	+ [](#)
+- [B. Tổng quan về pacemaker](pacemaker-overview.md)
+	- [B.1 Tổng quan về quorum](quorum-overview.md)
+	- [B.2 Tổng quan về STONITH/ fencing](fencing-overview.md)
+	- [B.3 Tổng quan về resource](resource-overview.md)

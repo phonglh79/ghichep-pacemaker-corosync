@@ -7,9 +7,10 @@
 - [1.3 IP Plan](#ipPlan)
 - [1.4 Cài đặt nginx và modules](#nginx)
 - [1.5 Kiểm tra cài đặt nginx](#test)
-- [1.6 Cài đặt pacemaker và corosync để tạo cluster cho nginx](#pacemaker)
-- [1.7 Cấu hình để thêm các resources vào Cluster](#configCluster)
-- [1.7 Thêm resource NGINX để pacemaker quản lý](#addResources)
+- [1.6 Cài đặt pacemaker và corosync để tạo cluster](#pacemaker)
+- [1.7 Cấu hình để thêm các resources vào Cluster với CLI](#configCluster)
+- [1.8 Thêm resource NGINX để pacemaker quản lý với CLI](#addResources)
+- [1.9 Quản lý các resource với Web-GUI](#webgui)
 - [Các nội dung khác](#content-others)
 
 
@@ -272,20 +273,20 @@
 		- truy cập http://status-nginx.com/status-stream để kiểm tra thông tin lưu lượng của stream tcp trên server.
 
 
-- #### <a name="pacemaker">1.6 Cài đặt pacemaker và corosync để tạo cluster cho nginx</a>
+- #### <a name="pacemaker">1.6 Cài đặt pacemaker và corosync để tạo cluster</a>
 
 	+ Lưu ý: 
 			
 			- Các câu lệnh sau thực hiện trên cả 3 node lb01, lb02 và lb03
 
 
-	+ Tắt firewalld và disable selinux:
+	+ Tắt firewalld và disable SElinux:
 
 			sudo systemctl disable firewalld
 			sudo systemctl stop firewalld
 
-			sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
-			sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+			sed -i 's/SElinux=enforcing/SElinux=disabled/g' /etc/sysconfig/SElinux
+			sed -i 's/SElinux=enforcing/SElinux=disabled/g' /etc/SElinux/config
 
 			init 6
 	
@@ -554,9 +555,23 @@
 	    ```
 	    - Trong kết quả trên, ta có thể quan sát các resource đang được quản lý bởi pacemaker, các resource đang nằm trên node nào. 
 
+- ### <a name="webgui">1.9 Quản lý các resource với Web-GUI</a>
+
+	- Để thực hiện cài đặt và quản lý cluster cùng các resource sử dụng giao diện web. Vui lòng xem thêm tại [Quản lý cluster và các resource sử dụng Web GUI](install-manage-by-webgui-pacemaker.md#webgui)
 
 - # <a name="content-others">Các nội dung khác</a>
 
-	Sẽ cập nhật sau.
+- [3. Tạo và quản lý một cluster](create-cluster-pcmk.md)
+	- [3. 1  Tạo một cluster](create-cluster-pcmk.md#create)
+		- [3.1.1 Khởi động pacemaker](create-cluster-pcmk.md#start)
+		- [3.1.2 Xác thực các node tham gia vào cluster](create-cluster-pcmk.md#authen)
+		- [3.1.3 Cấu hình và khởi động các node trong cluster](create-cluster-pcmk.md#cluster-nodes)
+		- [3.1.4 Enable và Disable các dịch vụ cluster](create-cluster-pcmk.md#ed-services)
+	- [3.2 Quản lý các node trong cluster](create-cluster-pcmk.md#man-node)
+		- [3.2.1 Dừng các dịch vụ trong cluster](create-cluster-pcmk.md#stop-node)
+		- [3.2.2 Thêm node mới vào cluster](create-cluster-pcmk.md#add-node)
+		- [3.2.3 Xóa bỏ node trong cluster](create-cluster-pcmk.md#rem-node)
+	- [3.3 Xóa cấu hình cluster](create-cluster-pcmk.md#rem-config)
+	- [3.4 Hiển thị trạng thái cluster](create-cluster-pcmk.md#disp-stat)
 
-	+ [](#)
+- [E. Thực hiện cấu hình tạo cluster với chế độ active/active](master-resource-pcmk.md#configure)
