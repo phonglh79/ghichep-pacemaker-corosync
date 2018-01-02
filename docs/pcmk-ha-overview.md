@@ -22,7 +22,7 @@ ___
 
 - <a name="whatis-ha">A.1 Giới thiệu về High Availability Cluster</a>
 
-	- Mục đích của một HA (High Availability) cluster là đảm bảo rằng các tài nguyên quan trọng có thể được tận dụng một cách tối đa nhất có thể. Mục đích này được thực hiện bằng các cài đặt nhiều cluster software trên nhiều máy chủ. Các cluster software này theo dõi sự khả dụng của các node trong cluster.	Đòng thời giám sát sự khả dụng của các dịch vụ được quản lý bởi cluster như: File Share, File Storage, ... Nếu như các máy chủ này ngừng hoạt động hoặc các resource ngừng hoạt động thì ha cluster sẽ thông báo và đảm bảo rằng resource được khởi động lại ở một nơi nào đó trong cluster sao cho có thể sử dụng lại được resource đã ngừng hoạt động đó trong một khoảng thời gian tối thiểu.
+	- Mục đích của một HA (High Availability) cluster là đảm bảo rằng các tài nguyên quan trọng có thể được tận dụng một cách tối đa nhất có thể. Mục đích này được thực hiện bằng các cài đặt nhiều cluster software trên nhiều máy chủ. Các cluster software này theo dõi sự khả dụng của các node trong cluster.	Đồng thời giám sát sự khả dụng của các dịch vụ được quản lý bởi cluster như: File Share, File Storage, ... Nếu như các máy chủ này ngừng hoạt động hoặc các resource ngừng hoạt động thì ha cluster sẽ thông báo và đảm bảo rằng resource được khởi động lại ở một nơi nào đó trong cluster sao cho có thể sử dụng lại được resource đã ngừng hoạt động đó trong một khoảng thời gian tối thiểu.
 
 	- Để xây dựng lên một HA Cluster, ta sẽ cần nhiều hơn một máy chủ được gắn với nhau. Thông thường, thành phần của một HA Cluster được xây dựng bao gồm:
 
@@ -102,7 +102,7 @@ ___
 	- <a name="corosync">A.2.4 Corosync</a>
 
 		+ Là một cơ sở hạ tầng mức độ thấp cung cấp thông tin tin cậy, thành viên và những thông tin quy định về cluster
-		+ Trong cấp cả các ha cluster stack hiện tại, corosync là một giải pháp mặc định. Điều này có nghĩa rằng ta nên sử dụng corosync trong mọi trường hợp. Đôi khi, trong một vài trường hợp đặc biệt, corosync sẽ không làm việc.
+		+ Trong các mức độ của các ha cluster stack hiện tại, corosync là một giải pháp mặc định. Điều này có nghĩa rằng ta nên sử dụng corosync trong mọi trường hợp. Đôi khi, trong một vài trường hợp đặc biệt, corosync sẽ không làm việc.
 
 	- <a name="quorum">A.2.5 Quorum</a>
 
